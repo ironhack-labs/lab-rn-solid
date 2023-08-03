@@ -20,6 +20,8 @@ Separate Concerns: Create separate classes for each responsibility (data storage
 Dependency Injection: Inject the required instances of the newly created classes into the User class rather than implementing them directly. This way, the User class won't be directly responsible for handling these concerns.
 */
 
+// user.ts
+
 class User {
   private id: number;
   private name: string;
@@ -45,63 +47,21 @@ class User {
     return this.email;
   }
 
-  // No getPassword() method here to avoid exposing the password
-
-  public validatePassword(inputPassword: string): boolean {
-    const passwordValidator = new PasswordValidator();
-    return passwordValidator.validate(inputPassword, this.password);
+  public getPassword(): string {
+    return this.password;
   }
 
-  public generateAuthToken(): string {
-    const authTokenGenerator = new AuthTokenGenerator();
-    return authTokenGenerator.generateAuthToken(this.id);
-  }
-}
-
-class UserDataStorage {
-  public saveToDatabase(user: User): void {
+  public saveToDatabase(): void {
     // TODO: Implement the logic to save the user data to the database
-    console.log(`Saving user ${user.getName()} to the database`);
+    console.log(
+      `Saving user data to the database: ${this.name} (${this.email})`
+    );
   }
-}
 
-class EmailService {
-  public sendWelcomeEmail(user: User): void {
+  public sendWelcomeEmail(): void {
     // TODO: Implement the logic to send a welcome email to the user
-    console.log(`Sending welcome email to ${user.getEmail()}`);
+    console.log(`Sending welcome email to ${this.name} (${this.email})`);
   }
 }
 
-class PasswordValidator {
-  public validate(inputPassword: string, storedPassword: string): boolean {
-    // TODO: Implement the logic to validate the user's password
-    return inputPassword === storedPassword;
-  }
-}
-
-class AuthTokenGenerator {
-  public generateAuthToken(userId: number): string {
-    // TODO: Implement the logic to generate an authentication token for the user
-    return `Token for user with ID ${userId}`;
-  }
-}
-
-// Example Usage:
-
-const user = new User(1, "John Doe", "john@example.com", "secretpassword");
-
-const userDataStorage = new UserDataStorage();
-userDataStorage.saveToDatabase(user);
-
-const emailService = new EmailService();
-emailService.sendWelcomeEmail(user);
-
-const inputPassword = "secretpassword";
-if (user.validatePassword(inputPassword)) {
-  console.log("Password is valid!");
-} else {
-  console.log("Invalid password!");
-}
-
-const authToken = user.generateAuthToken();
-console.log(`Generated auth token: ${authToken}`);
+export default User;

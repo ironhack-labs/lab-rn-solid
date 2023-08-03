@@ -10,12 +10,9 @@ Refactored Code - areaCalculator.ts: The AreaCalculator class now accepts an obj
 Result: With this refactoring, the code adheres to the Open/Closed Principle. Now, when adding a new shape, we only need to create a new class that implements IShape and provides the getArea() method without modifying the existing code. The AreaCalculator class remains closed for modification and open for extension, making the code more maintainable and extensible.
 */
 
-export interface IShape {
-  getType(): string;
-  getArea(): number;
-}
+// shapes.ts
 
-export class Shape implements IShape {
+class Shape {
   protected type: string;
 
   constructor(type: string) {
@@ -27,11 +24,11 @@ export class Shape implements IShape {
   }
 
   public getArea(): number {
-    return 0; // Area will be calculated by individual shape classes
+    return 0;
   }
 }
 
-export class Circle extends Shape {
+class Circle extends Shape {
   public radius: number;
 
   constructor(radius: number) {
@@ -44,7 +41,7 @@ export class Circle extends Shape {
   }
 }
 
-export class Rectangle extends Shape {
+class Rectangle extends Shape {
   public width: number;
   public height: number;
 
@@ -59,7 +56,7 @@ export class Rectangle extends Shape {
   }
 }
 
-export class Triangle extends Shape {
+class Triangle extends Shape {
   public base: number;
   public height: number;
 
@@ -74,8 +71,10 @@ export class Triangle extends Shape {
   }
 }
 
-export class AreaCalculator {
-  public static calculateArea(shape: IShape): number {
+class AreaCalculator {
+  public static calculateArea(shape: Shape): number {
     return shape.getArea();
   }
 }
+
+export { Shape, Circle, Rectangle, Triangle, AreaCalculator };

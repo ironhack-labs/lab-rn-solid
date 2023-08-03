@@ -7,6 +7,8 @@ Both the Dog and Fish classes are subclasses of the base class Animal, and by us
 
 // animals.ts
 
+// animals.ts
+
 class Animal {
   public getInfo(): string {
     return "Animal";

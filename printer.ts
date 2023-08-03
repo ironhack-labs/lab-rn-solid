@@ -6,6 +6,8 @@ The FancyPrinter class implements the FancyPrinter interface, which extends the 
 By segregating the interfaces, the FancyPrinter class is not forced to implement any unnecessary methods. Each class adheres to the Interface Segregation Principle, providing only the methods it requires.
 */
 
+// printer.ts
+
 interface Printer {
   printContent(content: string): void;
 }

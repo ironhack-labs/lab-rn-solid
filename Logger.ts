@@ -18,7 +18,6 @@ class FileLogger implements Logger {
 
 class DatabaseLogger implements Logger {
   public log(message: string): void {
-    // TODO: Implement the logic to log the message to the database
     console.log(`Logging to database: ${message}`);
   }
 }
