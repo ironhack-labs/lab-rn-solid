@@ -1,4 +1,3 @@
-// authTokenGenerator.ts - AuthTokenGenerator class
 export default class AuthTokenGenerator {
     public static generateAuthToken(): string {
       // TODO: Implement the logic to generate an authentication token for the user

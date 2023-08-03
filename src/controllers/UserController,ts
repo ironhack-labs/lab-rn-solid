@@ -1,7 +1,6 @@
 import User from '../models/User';
-import UserRepository from '../database/UserRepository';
-import EmailService from './../email/emailService';
-
+import UserRepository from '../database/userRepository';
+import EmailService from '../email/emailService';
 // Creating a new user
 const user = new User(1, 'John Doe', 'john@example.com', 'secretpassword');
 
