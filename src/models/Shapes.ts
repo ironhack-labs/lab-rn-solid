@@ -1,4 +1,5 @@
-export  class Shape {
+// shape.ts
+export abstract class Shape {
   protected type: string;
 
   constructor(type: string) {
@@ -8,25 +9,9 @@ export  class Shape {
   public getType(): string {
     return this.type;
   }
-}
 
-export class AreaCalculator {
-  public static calculateArea(shape: Shape): number {
-    let area = 0;
-
-    if (shape.getType() === "circle") {
-      const circle = shape as Circle;
-      area = Math.PI * circle.radius * circle.radius;
-    } else if (shape.getType() === "rectangle") {
-      const rectangle = shape as Rectangle;
-      area = rectangle.width * rectangle.height;
-    } else if (shape.getType() === "triangle") {
-      const triangle = shape as Triangle;
-      area = (triangle.base * triangle.height) / 2;
-    }
-
-    return area;
-  }
+  // New abstract method for calculating area
+  public abstract calculateArea(): number;
 }
 
 export class Circle extends Shape {
@@ -35,6 +20,11 @@ export class Circle extends Shape {
   constructor(radius: number) {
     super("circle");
     this.radius = radius;
+  }
+
+  // Implementing the calculateArea method for Circle
+  public calculateArea(): number {
+    return Math.PI * this.radius * this.radius;
   }
 }
 
@@ -47,6 +37,11 @@ export class Rectangle extends Shape {
     this.width = width;
     this.height = height;
   }
+
+  // Implementing the calculateArea method for Rectangle
+  public calculateArea(): number {
+    return this.width * this.height;
+  }
 }
 
 export class Triangle extends Shape {
@@ -57,5 +52,10 @@ export class Triangle extends Shape {
     super("triangle");
     this.base = base;
     this.height = height;
+  }
+
+  // Implementing the calculateArea method for Triangle
+  public calculateArea(): number {
+    return (this.base * this.height) / 2;
   }
 }

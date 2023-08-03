@@ -1,3 +1,4 @@
+// user.ts - User class (data representation)
 export default class User {
   private id: number;
   private name: string;
@@ -25,23 +26,5 @@ export default class User {
 
   public getPassword(): string {
     return this.password;
-  }
-
-  public saveToDatabase(): void {
-    // TODO: Implement the logic to save the user data to the database
-  }
-
-  public sendWelcomeEmail(): void {
-    // TODO: Implement the logic to send a welcome email to the user
-  }
-
-  public validatePassword(inputPassword: string): boolean {
-    // TODO: Implement the logic to validate the user's password
-    return false;
-  }
-
-  public generateAuthToken(): string {
-    // TODO: Implement the logic to generate an authentication token for the user
-    return '';
   }
 }
