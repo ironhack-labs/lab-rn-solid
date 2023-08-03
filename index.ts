@@ -1,5 +1,5 @@
 import User from "./user"
-// import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes";
+import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes";
 // import {Dog, Fish} from './animals'
 // import {FancyPrinter, SimplePrinter, type Printer} from './printer'
 // import {FileLogger, DatabaseLogger, type Logger} from './Logger'
@@ -10,22 +10,31 @@ const user = new User(1, "John Doe", "john@example.com", "secretpassword");
 user.saveToDatabase();
 user.sendWelcomeEmail();
 
+// Ejemplo utilizando validatePassword():
+
+const inputPassword2 = "password123";
+if (user.validatePassword(inputPassword2)) {
+  console.log(`La contraseña del usuario ${user.getName()} es correcta.`);
+} else {
+  console.log(`La contraseña del usuario ${user.getName()} es incorrecta.`);
+}
+
 console.log('--------------------------');
 
 
-// // Iteration 2:
+// Iteration 2:
 
-// const circle = new Circle(5);
-// const rectangle = new Rectangle(4, 6);
-// const triangle = new Triangle(3, 8);
+const circle = new Circle(5);
+const rectangle = new Rectangle(4, 6);
+const triangle = new Triangle(3, 8);
 
-// const circleArea = AreaCalculator.calculateArea(circle);
-// const rectangleArea = AreaCalculator.calculateArea(rectangle);
-// const triangleArea = AreaCalculator.calculateArea(triangle);
+const circleArea = AreaCalculator.calculateArea(circle);
+const rectangleArea = AreaCalculator.calculateArea(rectangle);
+const triangleArea = AreaCalculator.calculateArea(triangle);
 
-// console.log(circleArea); // Output: 78.53981633974483
-// console.log(rectangleArea); // Output: 24
-// console.log(triangleArea); // Output: 12
+console.log(circleArea); // Output: 78.53981633974483
+console.log(rectangleArea); // Output: 24
+console.log(triangleArea); // Output: 12
 
 // // Iteration 3: 
 
