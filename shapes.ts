@@ -1,3 +1,4 @@
+// Refactorización de código: Principio "Open/Closed" y "Single Responsibility" aplicados en una interfaz para calcular áreas de figuras.K
 // Interface representing the strategy to calculate the area of a shape.
 interface AreaCalculatorStrategy {
   calculateArea(shape: Shape): number;

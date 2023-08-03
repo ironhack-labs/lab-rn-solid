@@ -1,3 +1,6 @@
+//La refactorización corrigió el código al dividir las tareas en clases específicas según el principio de Responsabilidad Única. 
+//Siguiendo los principios de SOLID, el código mejoró su claridad y mantenibilidad.
+
 // Clase User para representar a un usuario
 export default class User {
   private id: number;

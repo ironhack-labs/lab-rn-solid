@@ -1,4 +1,3 @@
-//Recapitulando nuestro inicio en el Bootcamp, hacemos uso de una clase abstracta para definir despues nuestros metodos.
 
 // Definimos una clase abstracta llamada "Animal" para despues definir los metodos
 export abstract class Animal {

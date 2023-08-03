@@ -1,3 +1,5 @@
+//Primero, se fragmentaron las interfaces en dos partes para que su influencia sea dinámica según la selección, 
+//y se eliminó el tipo "Impresora" que anteriormente hacía referencia a ambas interfaces como una sola .
 export interface SimplePrinter {
   printContent(content: string): void;
 }
