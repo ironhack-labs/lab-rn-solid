@@ -2,7 +2,7 @@ import User from "./user"
 import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes"
 import {Dog, Fish, Animal} from './animals'
 import { FancyPrinterImpl, SimplePrinterImpl, SimplePrinter, FancyPrinter } from './printer'
-import {FileLogger, DatabaseLogger, type Logger} from './Logger'
+import {FileLogger, DatabaseLogger, Logger} from './Logger' //Modificamos el tipo por una interfaz
 
 //Para uso de la Iteration 3
 function printInfo(animal: Animal): void {
@@ -58,9 +58,9 @@ fancyPrinter.printFancyContent("Hello, this is a fancy printer.");
 console.log('');//Separacion de resultados
 //
 
-// // Iteration 5:
-// const fileLogger: Logger = new FileLogger();
-// const databaseLogger: Logger = new DatabaseLogger();
+// Iteration 5:
+const fileLogger: Logger = new FileLogger();
+const databaseLogger: Logger = new DatabaseLogger();
 
-// fileLogger.log("This is a log message in a file."); // Output: Logging to file: This is a log message in a file.
-// databaseLogger.log("This is a log message in the database."); // Output: Logging to database: This is a log message in the database.
+fileLogger.log("This is a log message in a file."); // Output: Logging to file: This is a log message in a file.
+databaseLogger.log("This is a log message in the database."); // Output: Logging to database: This is a log message in the database.
