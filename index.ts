@@ -1,7 +1,7 @@
 import { User, UserRepository, EmailService, AuthService } from "./iteration-1";
 import { Circle, Rectangle, Triangle } from "./iteration-2";
 import { Dog, Fish, printInfo } from "./iteration-3";
-import { FancyPrinter, SimplePrinter, type Printer } from "./printer";
+import { FancyPrinter, SimplePrinter, type Printer } from "./iteration-4";
 import { FileLogger, DatabaseLogger, type Logger } from "./Logger";
 
 const user = new User(1, "John Doe", "john@example.com", "secretpassword");
@@ -39,12 +39,15 @@ const fish = new Fish("Goldfish");
 printInfo(dog); // Output: Info: Dog - Buddy
 printInfo(fish); // Output: Info: Fish - Goldfish
 
-// // Iteration 4:
+// Iteration 4:
 
-// const simplePrinter: Printer = new SimplePrinter();
-// const fancyPrinter: Printer = new FancyPrinter();
+const simplePrinter: Printer = new SimplePrinter();
+const fancyPrinter: Printer = new FancyPrinter();
 
-// // Iteration 5:
+simplePrinter.printContent("Hello, this is a simple printer."); // Output: Printing: Hello, this is a simple printer.
+fancyPrinter.printContent("Hello, this is a fancy printer.");
+
+// Iteration 5:
 
 // const fileLogger: Logger = new FileLogger();
 // const databaseLogger: Logger = new DatabaseLogger();
