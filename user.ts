@@ -37,7 +37,7 @@ class User {
   }
 
   public get id (): number {
-    return this.id
+    return this._id
   }
 
   public get name (): string {
