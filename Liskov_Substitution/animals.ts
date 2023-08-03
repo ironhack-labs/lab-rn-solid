@@ -1,27 +1,32 @@
-export class Animal {
-  // TODO: Fill in the missing code to adhere to the Liskov Substitution Principle
+
+export abstract class Animal {
+  public abstract getInfo(): string
 }
 
 export class Dog extends Animal {
   private name: string;
 
   constructor(name: string) {
-    super();
+    super()
     this.name = name;
   }
 
-  // TODO: Fill in the missing code to adhere to the Liskov Substitution Principle
+  getInfo(): string {
+    return `Info: Dog - ${this.name}`
+  }
 }
 
 export class Fish extends Animal {
   private type: string;
 
   constructor(type: string) {
-    super();
+    super()
     this.type = type;
   }
 
-  // TODO: Fill in the missing code to adhere to the Liskov Substitution Principle
+  getInfo(): string {
+    return `Info: Fish - ${this.type}`
+  }
 }
 
 // Example Usage:
