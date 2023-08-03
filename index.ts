@@ -2,7 +2,7 @@ import User from "./user"
 import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes";
 import {Dog, Fish, Animal} from './animals'
 import { FancyPrinterIt2, SimplePrinterIt2, SimplePrinter, FancyPrinter } from './printer'
-// import {FileLogger, DatabaseLogger, type Logger} from './Logger'
+import {FileLogger, DatabaseLogger, type Logger} from './Logger'
 
 
 
@@ -62,11 +62,12 @@ const fancyPrinter: FancyPrinter = new FancyPrinterIt2();
 simplePrinter.printContent("Hello, this is a simple printer."); // Output: Printing: Hello, this is a simple printer.
 fancyPrinter.printFancyContent("Hello, this is a fancy printer."); // Output: Fancy printing: Hello, this is a fancy printer.
 
+console.log('------------Iteracion 5---------------');
 
 // // Iteration 5:
 
-// const fileLogger: Logger = new FileLogger();
-// const databaseLogger: Logger = new DatabaseLogger();
+const fileLogger: Logger = new FileLogger();
+const databaseLogger: Logger = new DatabaseLogger();
 
-// fileLogger.log("This is a log message in a file."); // Output: Logging to file: This is a log message in a file.
-// databaseLogger.log("This is a log message in the database."); // Output: Logging to database: This is a log message in the database.
+fileLogger.log("This is a log message in a file."); // Output: Logging to file: This is a log message in a file.
+databaseLogger.log("This is a log message in the database."); // Output: Logging to database: This is a log message in the database.
