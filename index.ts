@@ -1,7 +1,7 @@
 import User from "./user"
 import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes";
-import {Dog, Fish} from './animals'
-import {FancyPrinter, SimplePrinter, type Printer} from './printer'
+import {Dog, Fish, printInfo} from './animals'
+import {FancyPrinter, SimplePrinter} from './printer'
 import {FileLogger, DatabaseLogger, type Logger} from './Logger'
 
 const user = new User(1, "John Doe", "john@example.com", "secretpassword");
@@ -32,8 +32,8 @@ printInfo(fish); // Output: Info: Fish - Goldfish
 
 // Iteration 4:
 
-const simplePrinter: Printer = new SimplePrinter();
-const fancyPrinter: Printer = new FancyPrinter();
+const simplePrinter = new SimplePrinter();
+const fancyPrinter = new FancyPrinter();
 
 // Iteration 5:
 
