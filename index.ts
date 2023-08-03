@@ -1,8 +1,10 @@
 import User from "./user"
 import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes";
-// import {Dog, Fish} from './animals'
-// import {FancyPrinter, SimplePrinter, type Printer} from './printer'
+import {Dog, Fish, Animal} from './animals'
+import { FancyPrinterImpl, SimplePrinterImpl, SimplePrinter, FancyPrinter } from './printer'
 // import {FileLogger, DatabaseLogger, type Logger} from './Logger'
+
+
 
 console.log('------------Iteracion 1---------------');
 
@@ -19,7 +21,7 @@ if (user.validatePassword(inputPassword2)) {
   console.log(`La contraseña del usuario ${user.getName()} es incorrecta.`);
 }
 
-console.log('--------------------------');
+console.log('------------Iteracion 2---------------');
 
 
 // Iteration 2:
@@ -36,13 +38,20 @@ console.log(circleArea); // Output: 78.53981633974483
 console.log(rectangleArea); // Output: 24
 console.log(triangleArea); // Output: 12
 
+console.log('------------Iteracion 3---------------');
+
+
 // // Iteration 3: 
 
-// const dog = new Dog("Buddy");
-// const fish = new Fish("Goldfish");
+function printInfo(animal: Animal): void {
+    console.log(`Informacion: ${animal.getInfo()}`);
+}
 
-// printInfo(dog); // Output: Info: Dog - Buddy
-// printInfo(fish); // Output: Info: Fish - Goldfish
+const dog = new Dog("Buddy");
+const fish = new Fish("Goldfish");
+
+printInfo(dog); // Output: Info: Dog - Buddy
+printInfo(fish); // Output: Info: Fish - Goldfish
 
 // // Iteration 4:
 

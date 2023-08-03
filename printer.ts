@@ -1,14 +1,20 @@
-export interface Printer {
+export interface SimplePrinter {
   printContent(content: string): void;
+}
+
+export interface FancyPrinter {
   printFancyContent(content: string): void;
 }
 
-export class SimplePrinter implements Printer {
+export class SimplePrinterImpl implements SimplePrinter {
   public printContent(content: string): void {
-    console.log(`Printing: ${content}`);
+    console.log(`Imprimiendo: ${content}`);
   }
 }
 
-export class FancyPrinter implements Printer {
-  // TODO: Fill in the missing code to adhere to the Interface Segregation Principle
+export class FancyPrinterImpl implements FancyPrinter {
+  public printFancyContent(content: string): void {
+    console.log(`Imprimiendo en modo elegante: ${content}`);
+  }
 }
+
