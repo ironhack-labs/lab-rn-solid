@@ -1,7 +1,7 @@
 import User from "./user"
-import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes";
+import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes"
 import {Dog, Fish, Animal} from './animals'
-import {FancyPrinter, SimplePrinter, type Printer} from './printer'
+import { FancyPrinterImpl, SimplePrinterImpl, SimplePrinter, FancyPrinter } from './printer'
 import {FileLogger, DatabaseLogger, type Logger} from './Logger'
 
 //Para uso de la Iteration 3
@@ -46,9 +46,13 @@ printInfo(fish); // Output: Info: Fish - Goldfish
 console.log('');//Separacion de resultados
 //
 
-// // Iteration 4:
-// const simplePrinter: Printer = new SimplePrinter();
-// const fancyPrinter: Printer = new FancyPrinter();
+// Iteration 4:
+//Cambiamos un poco el codigo que tenemos para que podamos trabajar con los tipos que tiene cada clase.
+const simplePrinter: SimplePrinter = new SimplePrinterImpl();
+const fancyPrinter: FancyPrinter = new FancyPrinterImpl();
+
+simplePrinter.printContent("Hello, this is a simple printer.");
+fancyPrinter.printFancyContent("Hello, this is a fancy printer."); 
 
 //
 console.log('');//Separacion de resultados
