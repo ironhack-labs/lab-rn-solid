@@ -7,8 +7,12 @@ function printInfo(animal: Animal): void {
   console.log(`Info: ${animal.getInfo()}`);
 }
 
-const dog = new Dog("Buddy");
-const fish = new Fish("Goldfish");
+export function liskovSubstitutionPrinciple() {
+  console.log("Iteration 3: Liskov Substitution Principle");
+  const dog = new Dog("Buddy");
+  const fish = new Fish("Goldfish");
 
-printInfo(dog); // Output: Info: Dog - Buddy
-printInfo(fish); // Output: Info: Fish - Goldfish
+  printInfo(dog); // Output: Info: Dog - Buddy
+  printInfo(fish); // Output: Info: Fish - Goldfish
+  console.log("");
+}

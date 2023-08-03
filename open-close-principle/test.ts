@@ -8,23 +8,28 @@ import {
   TriangleAreaCalculator,
 } from "./AreaCalculator";
 
-const circle = new Circle(5);
-const rectangle = new Rectangle(4, 6);
-const triangle = new Triangle(3, 8);
+export function openClosedPrinciple() {
+  console.log("Iteration 2: Open/Closed Principle.");
 
-const circleArea = AreaCalculator.calculateArea(
-  circle,
-  new CircleAreaCalculator()
-);
-const rectangleArea = AreaCalculator.calculateArea(
-  rectangle,
-  new RectangleAreaCalculator()
-);
-const triangleArea = AreaCalculator.calculateArea(
-  triangle,
-  new TriangleAreaCalculator()
-);
+  const circle = new Circle(5);
+  const rectangle = new Rectangle(4, 6);
+  const triangle = new Triangle(3, 8);
 
-console.log(circleArea); // Output: 78.53981633974483
-console.log(rectangleArea); // Output: 24
-console.log(triangleArea); // Output: 12
+  const circleArea = AreaCalculator.calculateArea(
+    circle,
+    new CircleAreaCalculator()
+  );
+  const rectangleArea = AreaCalculator.calculateArea(
+    rectangle,
+    new RectangleAreaCalculator()
+  );
+  const triangleArea = AreaCalculator.calculateArea(
+    triangle,
+    new TriangleAreaCalculator()
+  );
+
+  console.log(circleArea); // Output: 78.53981633974483
+  console.log(rectangleArea); // Output: 24
+  console.log(triangleArea); // Output: 12
+  console.log("");
+}
