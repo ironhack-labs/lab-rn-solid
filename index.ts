@@ -1,12 +1,28 @@
 import User from "./user"
 import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes";
-import {Dog, Fish} from './animals'
-import {FancyPrinter, SimplePrinter, type Printer} from './printer'
+import {Dog, Fish, Animal} from './animals'
+import { FancyPrinterIt2, SimplePrinterIt2, SimplePrinter, FancyPrinter } from './printer'
 import {FileLogger, DatabaseLogger, type Logger} from './Logger'
+
+
+
+console.log('------------Iteracion 1---------------');
 
 const user = new User(1, "John Doe", "john@example.com", "secretpassword");
 user.saveToDatabase();
 user.sendWelcomeEmail();
+
+// Ejemplo utilizando validatePassword():
+
+const inputPassword2 = "password123";
+if (user.validatePassword(inputPassword2)) {
+  console.log(`La contraseña del usuario ${user.getName()} es correcta.`);
+} else {
+  console.log(`La contraseña del usuario ${user.getName()} es incorrecta.`);
+}
+
+console.log('------------Iteracion 2---------------');
+
 
 // Iteration 2:
 
@@ -22,7 +38,14 @@ console.log(circleArea); // Output: 78.53981633974483
 console.log(rectangleArea); // Output: 24
 console.log(triangleArea); // Output: 12
 
-// Iteration 3: 
+console.log('------------Iteracion 3---------------');
+
+
+// // Iteration 3: 
+
+function printInfo(animal: Animal): void {
+    console.log(`Informacion: ${animal.getInfo()}`);
+}
 
 const dog = new Dog("Buddy");
 const fish = new Fish("Goldfish");
@@ -30,12 +53,18 @@ const fish = new Fish("Goldfish");
 printInfo(dog); // Output: Info: Dog - Buddy
 printInfo(fish); // Output: Info: Fish - Goldfish
 
-// Iteration 4:
+console.log('------------Iteracion 4---------------');
 
-const simplePrinter: Printer = new SimplePrinter();
-const fancyPrinter: Printer = new FancyPrinter();
+// // Iteration 4:
+const simplePrinter: SimplePrinter = new SimplePrinterIt2();
+const fancyPrinter: FancyPrinter = new FancyPrinterIt2();
 
-// Iteration 5:
+simplePrinter.printContent("Hello, this is a simple printer."); // Output: Printing: Hello, this is a simple printer.
+fancyPrinter.printFancyContent("Hello, this is a fancy printer."); // Output: Fancy printing: Hello, this is a fancy printer.
+
+console.log('------------Iteracion 5---------------');
+
+// // Iteration 5:
 
 const fileLogger: Logger = new FileLogger();
 const databaseLogger: Logger = new DatabaseLogger();
