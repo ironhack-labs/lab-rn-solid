@@ -1,6 +1,6 @@
 import { User, UserRepository, EmailService, AuthService } from "./iteration-1";
 import { Circle, Rectangle, Triangle } from "./iteration-2";
-import { Dog, Fish } from "./animals";
+import { Dog, Fish, printInfo } from "./iteration-3";
 import { FancyPrinter, SimplePrinter, type Printer } from "./printer";
 import { FileLogger, DatabaseLogger, type Logger } from "./Logger";
 
@@ -39,15 +39,15 @@ const fish = new Fish("Goldfish");
 printInfo(dog); // Output: Info: Dog - Buddy
 printInfo(fish); // Output: Info: Fish - Goldfish
 
-// Iteration 4:
+// // Iteration 4:
 
-const simplePrinter: Printer = new SimplePrinter();
-const fancyPrinter: Printer = new FancyPrinter();
+// const simplePrinter: Printer = new SimplePrinter();
+// const fancyPrinter: Printer = new FancyPrinter();
 
-// Iteration 5:
+// // Iteration 5:
 
-const fileLogger: Logger = new FileLogger();
-const databaseLogger: Logger = new DatabaseLogger();
+// const fileLogger: Logger = new FileLogger();
+// const databaseLogger: Logger = new DatabaseLogger();
 
-fileLogger.log("This is a log message in a file."); // Output: Logging to file: This is a log message in a file.
-databaseLogger.log("This is a log message in the database."); // Output: Logging to database: This is a log message in the database.
+// fileLogger.log("This is a log message in a file."); // Output: Logging to file: This is a log message in a file.
+// databaseLogger.log("This is a log message in the database."); // Output: Logging to database: This is a log message in the database.
