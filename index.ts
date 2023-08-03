@@ -3,10 +3,11 @@ import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes";
 import {Dog, Fish} from './animals'
 import {FancyPrinter, SimplePrinter, type Printer} from './printer'
 import {FileLogger, DatabaseLogger, type Logger} from './Logger'
+import { UserSignUp } from "./userSignUp";
 
-const user = new User(1, "John Doe", "john@example.com", "secretpassword");
-user.saveToDatabase();
-user.sendWelcomeEmail();
+const newUser = new UserSignUp(1, "John Doe", "john@example.com", "secretpassword");
+newUser.saveToDatabase();
+newUser.sendWelcomeEmail();
 
 // Iteration 2:
 
