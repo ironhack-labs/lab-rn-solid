@@ -2,7 +2,13 @@ import { User, UserRepository, EmailService, AuthService } from "./iteration-1";
 import { Circle, Rectangle, Triangle } from "./iteration-2";
 import { Dog, Fish, printInfo } from "./iteration-3";
 import { FancyPrinter, SimplePrinter, type Printer } from "./iteration-4";
-import { FileLogger, DatabaseLogger, type Logger } from "./Logger";
+import {
+  FileLogger,
+  DatabaseLogger,
+  Logger,
+  Database,
+  DatabaseImpl,
+} from "./iteration-5";
 
 const user = new User(1, "John Doe", "john@example.com", "secretpassword");
 const userRepository = new UserRepository();
@@ -48,9 +54,9 @@ simplePrinter.printContent("Hello, this is a simple printer."); // Output: Print
 fancyPrinter.printContent("Hello, this is a fancy printer.");
 
 // Iteration 5:
+const fileLogger: Logger = new FileLogger();
+const database: Database = new DatabaseImpl();
+const databaseLogger: Logger = new DatabaseLogger(database);
 
-// const fileLogger: Logger = new FileLogger();
-// const databaseLogger: Logger = new DatabaseLogger();
-
-// fileLogger.log("This is a log message in a file."); // Output: Logging to file: This is a log message in a file.
-// databaseLogger.log("This is a log message in the database."); // Output: Logging to database: This is a log message in the database.
+fileLogger.log("This is a log message in a file."); // Output: Logging to file: This is a log message in a file.
+databaseLogger.log("This is a log message in the database."); // Output: Logging to database: This is a log message in the database.
