@@ -38,6 +38,9 @@ printInfo(fish) // Output: Info: Fish - Goldfish
 const simplePrinter: Printer = new SimplePrinter()
 const fancyPrinter: Printer = new FancyPrinter()
 
+simplePrinter.printContent('Hello world')
+fancyPrinter.printContent('Hello world in fancy way')
+
 // Iteration 5:
 
 const fileLogger: Logger = new FileLogger()
