@@ -1,7 +1,7 @@
 import User from "./user"
 import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes";
 import {Dog, Fish, Animal} from './animals'
-import { FancyPrinterImpl, SimplePrinterImpl, SimplePrinter, FancyPrinter } from './printer'
+import { FancyPrinterIt2, SimplePrinterIt2, SimplePrinter, FancyPrinter } from './printer'
 // import {FileLogger, DatabaseLogger, type Logger} from './Logger'
 
 
@@ -53,10 +53,15 @@ const fish = new Fish("Goldfish");
 printInfo(dog); // Output: Info: Dog - Buddy
 printInfo(fish); // Output: Info: Fish - Goldfish
 
-// // Iteration 4:
+console.log('------------Iteracion 4---------------');
 
-// const simplePrinter: Printer = new SimplePrinter();
-// const fancyPrinter: Printer = new FancyPrinter();
+// // Iteration 4:
+const simplePrinter: SimplePrinter = new SimplePrinterIt2();
+const fancyPrinter: FancyPrinter = new FancyPrinterIt2();
+
+simplePrinter.printContent("Hello, this is a simple printer."); // Output: Printing: Hello, this is a simple printer.
+fancyPrinter.printFancyContent("Hello, this is a fancy printer."); // Output: Fancy printing: Hello, this is a fancy printer.
+
 
 // // Iteration 5:
 

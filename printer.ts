@@ -6,15 +6,15 @@ export interface FancyPrinter {
   printFancyContent(content: string): void;
 }
 
-export class SimplePrinterImpl implements SimplePrinter {
+export class SimplePrinterIt2 implements SimplePrinter {
   public printContent(content: string): void {
-    console.log(`Imprimiendo: ${content}`);
+    console.log(`Printing: ${content}`);
   }
 }
 
-export class FancyPrinterImpl implements FancyPrinter {
+export class FancyPrinterIt2 implements FancyPrinter {
   public printFancyContent(content: string): void {
-    console.log(`Imprimiendo en modo elegante: ${content}`);
+    console.log(`Fancy printing ${content}`);
   }
 }
 
