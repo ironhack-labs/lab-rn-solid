@@ -1,4 +1,4 @@
-export  class Shape {
+export class Shape {
   protected type: string;
 
   constructor(type: string) {
@@ -11,9 +11,9 @@ export  class Shape {
 }
 
 export class AreaCalculator {
+
   public static calculateArea(shape: Shape): number {
     let area = 0;
-
     if (shape.getType() === "circle") {
       const circle = shape as Circle;
       area = Math.PI * circle.radius * circle.radius;

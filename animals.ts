@@ -1,5 +1,7 @@
 export class Animal {
-  // TODO: Fill in the missing code to adhere to the Liskov Substitution Principle
+  getInfo(): string {
+    return `Animal - Type`;
+  }
 }
 
 export class Dog extends Animal {
@@ -10,7 +12,9 @@ export class Dog extends Animal {
     this.name = name;
   }
 
-  // TODO: Fill in the missing code to adhere to the Liskov Substitution Principle
+  getInfo():string {
+    return `Dog - ${this.name}`;
+  }
 }
 
 export class Fish extends Animal {
@@ -21,7 +25,9 @@ export class Fish extends Animal {
     this.type = type;
   }
 
-  // TODO: Fill in the missing code to adhere to the Liskov Substitution Principle
+  getInfo(): string {
+    return `Fish - ${this.type}`;
+  }
 }
 
 // Example Usage:

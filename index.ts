@@ -1,6 +1,6 @@
 import User from "./user"
 import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes";
-import {Dog, Fish} from './animals'
+import {Dog, Fish, printInfo} from './animals'
 import {FancyPrinter, SimplePrinter, type Printer} from './printer'
 import {FileLogger, DatabaseLogger, type Logger} from './Logger'
 import { UserSignUp } from "./userSignUp";
