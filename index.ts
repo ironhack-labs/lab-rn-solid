@@ -1,12 +1,12 @@
-import User from "./user"
 import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes";
-import {Dog, Fish} from './animals'
+import {Dog, Fish, printInfo} from './animals'
 import {FancyPrinter, SimplePrinter, type Printer} from './printer'
-import {FileLogger, DatabaseLogger, type Logger} from './Logger'
+import {FileLogger, DatabaseLogger, type Logger, UsersDB} from './Logger'
+import { UserSignUp } from "./userSignUp";
 
-const user = new User(1, "John Doe", "john@example.com", "secretpassword");
-user.saveToDatabase();
-user.sendWelcomeEmail();
+const newUser = new UserSignUp(1, "John Doe", "john@example.com", "secretpassword");
+newUser.saveToDatabase();
+newUser.sendWelcomeEmail();
 
 // Iteration 2:
 
@@ -35,10 +35,14 @@ printInfo(fish); // Output: Info: Fish - Goldfish
 const simplePrinter: Printer = new SimplePrinter();
 const fancyPrinter: Printer = new FancyPrinter();
 
+simplePrinter.printContent("Hello, this is a simple printer."); // Output: Printing: Hello, this is a simple printer.
+fancyPrinter.printContent("Hello, this is a fancy printer."); 
+
 // Iteration 5:
 
 const fileLogger: Logger = new FileLogger();
-const databaseLogger: Logger = new DatabaseLogger();
+const usersDb: UsersDB = new UsersDB();
+const databaseLogger: Logger = new DatabaseLogger(usersDb);
 
 fileLogger.log("This is a log message in a file."); // Output: Logging to file: This is a log message in a file.
 databaseLogger.log("This is a log message in the database."); // Output: Logging to database: This is a log message in the database.
