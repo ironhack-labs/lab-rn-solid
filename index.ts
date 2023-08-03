@@ -1,12 +1,17 @@
 import User from "./user"
 import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes";
-import {Dog, Fish} from './animals'
-import {FancyPrinter, SimplePrinter, type Printer} from './printer'
-import {FileLogger, DatabaseLogger, type Logger} from './Logger'
+import { Dog, Fish, printInfo } from './animals'
+import { FancyPrinter, SimplePrinter, type Printer } from './printer'
+import { FileLogger, DatabaseLogger, type Logger } from './Logger'
 
 const user = new User(1, "John Doe", "john@example.com", "secretpassword");
+user.getName();
+user.getEmail();
+user.getId();
+user.getPassword();
 user.saveToDatabase();
 user.sendWelcomeEmail();
+user.validatePassword('asdasdsa');
 
 // Iteration 2:
 
@@ -33,7 +38,11 @@ printInfo(fish); // Output: Info: Fish - Goldfish
 // Iteration 4:
 
 const simplePrinter: Printer = new SimplePrinter();
-const fancyPrinter: Printer = new FancyPrinter();
+const fancyPrinter: FancyPrinter = new FancyPrinter();
+
+simplePrinter.printContent("Hello, this is a simple printer."); // Output: Printing: Hello, this is a simple printer.
+fancyPrinter.printContent("Hello, this is a fancy printer."); // Output: Fancy printing: Hello, this is a fancy printer.
+
 
 // Iteration 5:
 

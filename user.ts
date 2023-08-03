@@ -29,19 +29,32 @@ export default class User {
 
   public saveToDatabase(): void {
     // TODO: Implement the logic to save the user data to the database
+    console.log('user saved to DB');
   }
 
   public sendWelcomeEmail(): void {
     // TODO: Implement the logic to send a welcome email to the user
+    console.log('Welcome email sended');
   }
 
   public validatePassword(inputPassword: string): boolean {
     // TODO: Implement the logic to validate the user's password
-    return false;
+    console.log('pasword validated')
+    return inputPassword == this.password;
   }
 
   public generateAuthToken(): string {
     // TODO: Implement the logic to generate an authentication token for the user
-    return '';
+    return 'el token';
   }
 }
+
+/*
+  La clase User no se apega al principio de responsabilidad unica, dado que contiene funciones que no son parte de lo que se seria su responsabilidad de contener los datos de un usuario.
+  Sus funciones get son correctas dado que no se puede acceder a esta informacion fuera de la calse.
+  Como sugerencia de refactorizacion lo idea seria crear un serivicio que realize las demas funciones que estan creadas en la clase:
+  Recomenadaira la creacion de 3 archvios para:
+    1 los servicios de autenticacion y creacion de usuario, donde las funciones saveToDataBase y validatePassword entrarian.
+    2 un servicio para generateAuthToken para todo lo que sea encriptacion..
+    3 un servicio de comunicacion para terceros en este caso sendWelcomeEmail
+*/

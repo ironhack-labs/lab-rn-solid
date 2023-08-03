@@ -59,3 +59,9 @@ export class Triangle extends Shape {
     this.height = height;
   }
 }
+/* 
+  El princpio Open/Close esta bien definido en esta clase, usando la clase shape con los attributos que comparten las figuras.
+  Asi pero la clase AreaCalculator rompe el principio dado que si agregamos otra figura que no cumpla con los 3 calculos de area se tendria que modificar, y agregar otra figura 
+  clase de calculo de area no es una opccion.
+  Sugiero 
+*/
