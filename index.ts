@@ -1,8 +1,13 @@
 import User from "./user"
 import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes";
-import {Dog, Fish} from './animals'
+import {Dog, Fish, Animal} from './animals'
 import {FancyPrinter, SimplePrinter, type Printer} from './printer'
 import {FileLogger, DatabaseLogger, type Logger} from './Logger'
+
+//Para uso de la Iteration 3
+function printInfo(animal: Animal): void {
+    console.log(`Info: ${animal.getInfo()}`);
+}
 
 //Iteration 1:
 const user = new User(1, "John Doe", "john@example.com", "secretpassword");
@@ -30,12 +35,12 @@ console.log(triangleArea); // Output: 12
 console.log('');//Separacion de resultados
 //
 
-// // Iteration 3: 
-// const dog = new Dog("Buddy");
-// const fish = new Fish("Goldfish");
+// Iteration 3: 
+const dog = new Dog("Buddy");
+const fish = new Fish("Goldfish");
 
-// printInfo(dog); // Output: Info: Dog - Buddy
-// printInfo(fish); // Output: Info: Fish - Goldfish
+printInfo(dog); // Output: Info: Dog - Buddy
+printInfo(fish); // Output: Info: Fish - Goldfish
 
 //
 console.log('');//Separacion de resultados
