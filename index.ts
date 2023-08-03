@@ -1,12 +1,21 @@
-import User from "./user"
+import { User, UserRepository, EmailService, AuthService } from "./iteration-1";
 import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes";
-import {Dog, Fish} from './animals'
-import {FancyPrinter, SimplePrinter, type Printer} from './printer'
-import {FileLogger, DatabaseLogger, type Logger} from './Logger'
+import { Dog, Fish } from "./animals";
+import { FancyPrinter, SimplePrinter, type Printer } from "./printer";
+import { FileLogger, DatabaseLogger, type Logger } from "./Logger";
 
 const user = new User(1, "John Doe", "john@example.com", "secretpassword");
-user.saveToDatabase();
-user.sendWelcomeEmail();
+const userRepository = new UserRepository();
+const emailService = new EmailService();
+const authService = new AuthService();
+
+userRepository.saveToDatabase(user);
+emailService.sendWelcomeEmail(user);
+
+if (authService.validatePassword(user, "secretpassword")) {
+  const authToken = authService.generateAuthToken(user);
+  console.log(`Generated Auth Token: ${authToken}`);
+}
 
 // Iteration 2:
 
@@ -22,7 +31,7 @@ console.log(circleArea); // Output: 78.53981633974483
 console.log(rectangleArea); // Output: 24
 console.log(triangleArea); // Output: 12
 
-// Iteration 3: 
+// Iteration 3:
 
 const dog = new Dog("Buddy");
 const fish = new Fish("Goldfish");
