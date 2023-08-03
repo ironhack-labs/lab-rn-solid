@@ -1,4 +1,3 @@
-import User from "./user"
 import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes";
 import {Dog, Fish, printInfo} from './animals'
 import {FancyPrinter, SimplePrinter, type Printer} from './printer'
