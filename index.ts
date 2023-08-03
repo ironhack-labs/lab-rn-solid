@@ -1,4 +1,3 @@
-import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes";
 import { Dog, Fish } from "./animals";
 import { FancyPrinter, SimplePrinter, type Printer } from "./printer";
 import { FileLogger, DatabaseLogger, type Logger } from "./Logger";
@@ -8,6 +7,9 @@ import {
   EmailService,
   UserRepoistory,
 } from "./src/single-responsibility-principle";
+import { Circle, Rectangle, Triangle } from "./src/open-closed-principle";
+
+console.group(" Iteration 1: Single Responsibility Principle: ");
 
 const userRepoistory = new UserRepoistory();
 const emailService = new EmailService();
@@ -27,19 +29,19 @@ if (isCorrectPassword) {
   console.log("Access token: ", accessToken);
 }
 
-// // Iteration 2:
+console.groupEnd();
 
-// const circle = new Circle(5);
-// const rectangle = new Rectangle(4, 6);
-// const triangle = new Triangle(3, 8);
+console.group(" Iteration 2: Open/Closed Principle: ");
 
-// const circleArea = AreaCalculator.calculateArea(circle);
-// const rectangleArea = AreaCalculator.calculateArea(rectangle);
-// const triangleArea = AreaCalculator.calculateArea(triangle);
+const circle = new Circle(5);
+const rectangle = new Rectangle(4, 6);
+const triangle = new Triangle(3, 8);
 
-// console.log(circleArea); // Output: 78.53981633974483
-// console.log(rectangleArea); // Output: 24
-// console.log(triangleArea); // Output: 12
+console.log(circle.calculateArea()); // Output: 78.53981633974483
+console.log(rectangle.calculateArea()); // Output: 24
+console.log(triangle.calculateArea()); // Output: 12
+
+console.groupEnd();
 
 // // Iteration 3:
 
