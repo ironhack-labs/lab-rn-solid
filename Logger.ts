@@ -1,3 +1,7 @@
+interface Database {
+  save(message: string): void;
+}
+
 export interface Logger {
   log(message: string): void;
 }
@@ -8,6 +12,17 @@ export class FileLogger implements Logger {
   }
 }
 
+export class UsersDB implements Database {
+  public save(message: string): void {
+    console.log(`Storging msg to DB ${message}`);
+  }
+}
+
 export class DatabaseLogger implements Logger {
-  // TODO: Fill in the missing code to adhere to the Dependency Inversion Principle
+  constructor(private db: Database){}
+
+  public log(message: string): void {
+    console.log(`Logging to DB ${message}`);
+    this.db.save(message);
+  }
 }
