@@ -1,8 +1,41 @@
-export class Animal {
-  // TODO: Fill in the missing code to adhere to the Liskov Substitution Principle
+// export class Animal {
+//   // TODO: Fill in the missing code to adhere to the Liskov Substitution Principle
+// }
+
+// export class Dog extends Animal {
+//   private name: string;
+
+//   constructor(name: string) {
+//     super();
+//     this.name = name;
+//   }
+
+//   // TODO: Fill in the missing code to adhere to the Liskov Substitution Principle
+// }
+
+// export class Fish extends Animal {
+//   private type: string;
+
+//   constructor(type: string) {
+//     super();
+//     this.type = type;
+//   }
+
+//   // TODO: Fill in the missing code to adhere to the Liskov Substitution Principle
+// }
+
+// // Example Usage:
+// export function printInfo(animal: Animal): void {
+//   console.log(`Info: ${animal.getInfo()}`);
+// }
+
+class Animal {
+  public getInfo(): string {
+    return "Animal";
+  }
 }
 
-export class Dog extends Animal {
+class Dog extends Animal {
   private name: string;
 
   constructor(name: string) {
@@ -10,10 +43,12 @@ export class Dog extends Animal {
     this.name = name;
   }
 
-  // TODO: Fill in the missing code to adhere to the Liskov Substitution Principle
+  public getInfo(): string {
+    return `Dog - ${this.name}`;
+  }
 }
 
-export class Fish extends Animal {
+class Fish extends Animal {
   private type: string;
 
   constructor(type: string) {
@@ -21,10 +56,18 @@ export class Fish extends Animal {
     this.type = type;
   }
 
-  // TODO: Fill in the missing code to adhere to the Liskov Substitution Principle
+  public getInfo(): string {
+    return `Fish - ${this.type}`;
+  }
 }
 
-// Example Usage:
-export function printInfo(animal: Animal): void {
+function printInfo(animal: Animal): void {
   console.log(`Info: ${animal.getInfo()}`);
 }
+
+const dog = new Dog("Buddy");
+const fish = new Fish("Goldfish");
+
+printInfo(dog); // Output: Info: Dog - Buddy
+printInfo(fish); // Output: Info: Fish - Goldfish
+
