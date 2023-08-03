@@ -1,5 +1,5 @@
 import User, { Database, Email } from './user'
-import { Circle, Rectangle, Triangle, AreaCalculator } from './shapes'
+import { Circle, Rectangle, Triangle } from './shapes'
 import { Dog, Fish } from './animals'
 import { FancyPrinter, SimplePrinter, type Printer } from './printer'
 import { FileLogger, DatabaseLogger, type Logger } from './Logger'
@@ -17,9 +17,9 @@ const circle = new Circle(5)
 const rectangle = new Rectangle(4, 6)
 const triangle = new Triangle(3, 8)
 
-const circleArea = AreaCalculator.calculateArea(circle)
-const rectangleArea = AreaCalculator.calculateArea(rectangle)
-const triangleArea = AreaCalculator.calculateArea(triangle)
+const circleArea = circle.calculateArea()
+const rectangleArea = rectangle.calculateArea()
+const triangleArea = triangle.calculateArea()
 
 console.log(circleArea) // Output: 78.53981633974483
 console.log(rectangleArea) // Output: 24
