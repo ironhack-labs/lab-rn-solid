@@ -1,4 +1,11 @@
-export  class Shape {
+//Para la refactorizacion del codigo aplicamos el principio de OPEN/CLOSE de SOLID y se implemento lo que es el el principio de Responsabilidad Unica que tambien se miro en el anterior ejercicio.
+
+// Creamos una interfaz que representará la estrategia para calcular el área de una figura.
+interface AreaCalculatorStrategy {
+  calculateArea(shape: Shape): number;
+}
+
+export class Shape {
   protected type: string;
 
   constructor(type: string) {
@@ -8,24 +15,9 @@ export  class Shape {
   public getType(): string {
     return this.type;
   }
-}
 
-export class AreaCalculator {
-  public static calculateArea(shape: Shape): number {
-    let area = 0;
-
-    if (shape.getType() === "circle") {
-      const circle = shape as Circle;
-      area = Math.PI * circle.radius * circle.radius;
-    } else if (shape.getType() === "rectangle") {
-      const rectangle = shape as Rectangle;
-      area = rectangle.width * rectangle.height;
-    } else if (shape.getType() === "triangle") {
-      const triangle = shape as Triangle;
-      area = (triangle.base * triangle.height) / 2;
-    }
-
-    return area;
+  public calculateArea(strategy: AreaCalculatorStrategy): number {
+    return strategy.calculateArea(this);
   }
 }
 
@@ -57,5 +49,40 @@ export class Triangle extends Shape {
     super("triangle");
     this.base = base;
     this.height = height;
+  }
+}
+
+class CircleAreaCalculator implements AreaCalculatorStrategy {
+  public calculateArea(circle: Circle): number {
+    return Math.PI * circle.radius * circle.radius;
+  }
+}
+
+class RectangleAreaCalculator implements AreaCalculatorStrategy {
+  public calculateArea(rectangle: Rectangle): number {
+    return rectangle.width * rectangle.height;
+  }
+}
+
+class TriangleAreaCalculator implements AreaCalculatorStrategy {
+  public calculateArea(triangle: Triangle): number {
+    return (triangle.base * triangle.height) / 2;
+  }
+}
+export class AreaCalculator {
+  public static calculateArea(shape: Shape): number {
+    let areaCalculatorStrategy: AreaCalculatorStrategy;
+
+    if (shape instanceof Circle) {
+      areaCalculatorStrategy = new CircleAreaCalculator();
+    } else if (shape instanceof Rectangle) {
+      areaCalculatorStrategy = new RectangleAreaCalculator();
+    } else if (shape instanceof Triangle) {
+      areaCalculatorStrategy = new TriangleAreaCalculator();
+    } else {
+      throw new Error("Tipo de figura no válido."); //Usamos el manejo de errores por cualquier casualidad.
+    }
+
+    return shape.calculateArea(areaCalculatorStrategy);
   }
 }

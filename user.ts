@@ -1,3 +1,6 @@
+//Es importante recalcal que el codigo inicial no cumplia son la Responsabilidad Unica de nuestros principios de SOLID, ya que estaba delegando muchas funciones a una sola clase,
+//esto provocaba violaba nuestro principio, por lo que para la refactorizacion tome encuenta eso como principal fundamento de lo que haria.
+
 export default class User {
   private id: number;
   private name: string;
@@ -23,25 +26,62 @@ export default class User {
     return this.email;
   }
 
-  public getPassword(): string {
+  //Si bien no se utiliza, es mejor dejarlo en privado ya que solo sera de uso interno.
+  private getPassword(): string {
     return this.password;
   }
 
+  // Método para guardar el usuario en la base de datos
   public saveToDatabase(): void {
-    // TODO: Implement the logic to save the user data to the database
+    const userRepository = new UserRepository();
+    userRepository.saveToDatabase(this);
   }
 
+  // Método para enviar el correo de bienvenida
   public sendWelcomeEmail(): void {
-    // TODO: Implement the logic to send a welcome email to the user
+    const emailService = new EmailService();
+    emailService.sendWelcomeEmail(this);
   }
 
+  // Método para validar la contraseña del usuario
   public validatePassword(inputPassword: string): boolean {
-    // TODO: Implement the logic to validate the user's password
+    const passwordValidator = new PasswordValidator();
+    return passwordValidator.validatePassword(this, inputPassword);
+  }
+
+  // Método para generar el token de autenticación
+  public generateAuthToken(): string {
+    const authTokenGenerator = new AuthTokenGenerator();
+    return authTokenGenerator.generateAuthToken(this);
+  }
+}
+
+//Tenemos nuestra clase para guardar los datos del usuario en nuestra base de datos.
+class UserRepository {
+  public saveToDatabase(user: User): void {
+    console.log(`Guardando el usuario ${user.getName()} en la base de datos.`);
+  }
+}
+
+//Tenemos nuestra clase para enviar el correo de bienvenida al usuario.
+class EmailService {
+  public sendWelcomeEmail(user: User): void {
+    console.log(`Enviando correo de bienvenida a ${user.getEmail()}.`);
+  }
+}
+
+//Un validador de contraseñas para nuestros usuarios.
+class PasswordValidator {
+  public validatePassword(user: User, inputPassword: string): boolean {
+    console.log(`Validando contraseña para el usuario ${user.getName()}.`);
     return false;
   }
+}
 
-  public generateAuthToken(): string {
-    // TODO: Implement the logic to generate an authentication token for the user
+//Por último nuestro Auth para el token del usuario.
+class AuthTokenGenerator {
+  public generateAuthToken(user: User): string {
+    console.log(`Generando token de autenticación para el usuario ${user.getName()}.`);
     return '';
   }
 }
