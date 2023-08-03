@@ -1,47 +1,57 @@
+// This class does not follow the Single Responsability principle because sending a welcome email and generating an authentication token might be considered separated
+// responsabilities that could potentially change for different reasons, also saving to database seems a responsability that is not part of the User.
+// Separating out the email related functionalities, saving to database and the token generator into their own classes would make the User class more focused
+// on the core user entity.
+
 export default class User {
-  private id: number;
-  private name: string;
-  private email: string;
-  private password: string;
+  private id: number
+  private name: string
+  private email: string
+  private password: string
 
   constructor(id: number, name: string, email: string, password: string) {
-    this.id = id;
-    this.name = name;
-    this.email = email;
-    this.password = password;
+    this.id = id
+    this.name = name
+    this.email = email
+    this.password = password
   }
 
   public getId(): number {
-    return this.id;
+    return this.id
   }
 
   public getName(): string {
-    return this.name;
+    return this.name
   }
 
   public getEmail(): string {
-    return this.email;
+    return this.email
   }
 
   public getPassword(): string {
-    return this.password;
-  }
-
-  public saveToDatabase(): void {
-    // TODO: Implement the logic to save the user data to the database
-  }
-
-  public sendWelcomeEmail(): void {
-    // TODO: Implement the logic to send a welcome email to the user
+    return this.password
   }
 
   public validatePassword(inputPassword: string): boolean {
-    // TODO: Implement the logic to validate the user's password
-    return false;
+    return this.password === inputPassword
   }
+}
 
-  public generateAuthToken(): string {
-    // TODO: Implement the logic to generate an authentication token for the user
-    return '';
+export class Email {
+  public sendWelcomeEmail(user: User): void {
+    console.log(`Welcome ${user.getName()}`)
+  }
+}
+
+export class TokenService {
+  public generateAuthToken(user: User): string {
+    console.log('token generated')
+    return ''
+  }
+}
+
+export class Database {
+  public saveToDatabase(user: User): void {
+    console.log('saved')
   }
 }
