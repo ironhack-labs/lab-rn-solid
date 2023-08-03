@@ -1,12 +1,27 @@
-import User from "./user"
-import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes";
-import {Dog, Fish} from './animals'
-import {FancyPrinter, SimplePrinter, type Printer} from './printer'
-import {FileLogger, DatabaseLogger, type Logger} from './Logger'
+import { User, UserRepository, EmailService, AuthService } from "./iteration-1";
+import { Circle, Rectangle, Triangle } from "./iteration-2";
+import { Dog, Fish, printInfo } from "./iteration-3";
+import { FancyPrinter, SimplePrinter, type Printer } from "./iteration-4";
+import {
+  FileLogger,
+  DatabaseLogger,
+  Logger,
+  Database,
+  DatabaseImpl,
+} from "./iteration-5";
 
 const user = new User(1, "John Doe", "john@example.com", "secretpassword");
-user.saveToDatabase();
-user.sendWelcomeEmail();
+const userRepository = new UserRepository();
+const emailService = new EmailService();
+const authService = new AuthService();
+
+userRepository.saveToDatabase(user);
+emailService.sendWelcomeEmail(user);
+
+if (authService.validatePassword(user, "secretpassword")) {
+  const authToken = authService.generateAuthToken(user);
+  console.log(`Generated Auth Token: ${authToken}`);
+}
 
 // Iteration 2:
 
@@ -14,15 +29,15 @@ const circle = new Circle(5);
 const rectangle = new Rectangle(4, 6);
 const triangle = new Triangle(3, 8);
 
-const circleArea = AreaCalculator.calculateArea(circle);
-const rectangleArea = AreaCalculator.calculateArea(rectangle);
-const triangleArea = AreaCalculator.calculateArea(triangle);
+const circleArea = circle.calculateArea();
+const rectangleArea = rectangle.calculateArea();
+const triangleArea = triangle.calculateArea();
 
 console.log(circleArea); // Output: 78.53981633974483
 console.log(rectangleArea); // Output: 24
 console.log(triangleArea); // Output: 12
 
-// Iteration 3: 
+// Iteration 3:
 
 const dog = new Dog("Buddy");
 const fish = new Fish("Goldfish");
@@ -35,10 +50,13 @@ printInfo(fish); // Output: Info: Fish - Goldfish
 const simplePrinter: Printer = new SimplePrinter();
 const fancyPrinter: Printer = new FancyPrinter();
 
-// Iteration 5:
+simplePrinter.printContent("Hello, this is a simple printer."); // Output: Printing: Hello, this is a simple printer.
+fancyPrinter.printContent("Hello, this is a fancy printer.");
 
+// Iteration 5:
 const fileLogger: Logger = new FileLogger();
-const databaseLogger: Logger = new DatabaseLogger();
+const database: Database = new DatabaseImpl();
+const databaseLogger: Logger = new DatabaseLogger(database);
 
 fileLogger.log("This is a log message in a file."); // Output: Logging to file: This is a log message in a file.
 databaseLogger.log("This is a log message in the database."); // Output: Logging to database: This is a log message in the database.
