@@ -24,27 +24,31 @@ export default class User {
   getEmail(): string {
     return this.email;
   }
+  
+  private getPassword(): string {
+      return this.password;
+    }
 
   // Método para guardar el usuario en la base de datos
-  saveToDatabase(): void {
+  public saveToDatabase(): void {
     const userRepository = new UserRepository();
     userRepository.save(this);
   }
 
   // Método para enviar el correo de bienvenida
-  sendWelcomeEmail(): void {
+  public sendWelcomeEmail(): void {
     const emailService = new EmailService();
     emailService.sendWelcome(this);
   }
 
   // Método para validar la contraseña del usuario
-  validatePassword(inputPassword: string): boolean {
+  public validatePassword(inputPassword: string): boolean {
     const passwordValidator = new PasswordValidator();
     return passwordValidator.validate(this, inputPassword);
   }
 
   // Método para generar el token de autenticación
-  generateAuthToken(): string {
+  public generateAuthToken(): string {
     const authTokenGenerator = new AuthTokenGenerator();
     return authTokenGenerator.generate(this);
   }

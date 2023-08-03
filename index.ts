@@ -4,11 +4,13 @@ import User from "./user"
 // import {FancyPrinter, SimplePrinter, type Printer} from './printer'
 // import {FileLogger, DatabaseLogger, type Logger} from './Logger'
 
+console.log('------------Iteracion 1---------------');
+
 const user = new User(1, "John Doe", "john@example.com", "secretpassword");
 user.saveToDatabase();
 user.sendWelcomeEmail();
 
-console.log('---------------------------');//Separacion de resultados
+console.log('--------------------------');
 
 
 // // Iteration 2:
