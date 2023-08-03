@@ -1,4 +1,4 @@
-import { Dog, Fish, printInfo } from "../../animals";
+import { Dog, Fish, printInfo } from "../models/Animals";
 
 const dog = new Dog('El pulgas');
 const fish = new Fish('Nemo');
