@@ -1,6 +1,6 @@
 import User, { Database, Email } from './user'
 import { Circle, Rectangle, Triangle } from './shapes'
-import { Dog, Fish } from './animals'
+import { Dog, Fish, printInfo } from './animals'
 import { FancyPrinter, SimplePrinter, type Printer } from './printer'
 import { FileLogger, DatabaseLogger, type Logger } from './Logger'
 
