@@ -7,8 +7,18 @@ export class SimplePrinter implements Printer {
   public printContent(content: string): void {
     console.log(`Printing: ${content}`);
   }
+
+  public printFancyContent(content: string): void {
+    throw new Error("Method not implemented");
+  }
 }
 
 export class FancyPrinter implements Printer {
-  // TODO: Fill in the missing code to adhere to the Interface Segregation Principle
+  public printContent(content: string): void {
+    console.log(`Fancy printing: ${content}`)  
+  }
+
+  public printFancyContent(content: string): void {
+    throw new Error('Method not implemented');
+  }
 }
