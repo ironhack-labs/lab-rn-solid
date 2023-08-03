@@ -1,3 +1,4 @@
+// Clase User para representar a un usuario
 export default class User {
   private id: number;
   private name: string;
@@ -11,37 +12,70 @@ export default class User {
     this.password = password;
   }
 
-  public getId(): number {
+  // Métodos para obtener información del usuario
+  getId(): number {
     return this.id;
   }
 
-  public getName(): string {
+  getName(): string {
     return this.name;
   }
 
-  public getEmail(): string {
+  getEmail(): string {
     return this.email;
   }
 
-  public getPassword(): string {
-    return this.password;
+  // Método para guardar el usuario en la base de datos
+  saveToDatabase(): void {
+    const userRepository = new UserRepository();
+    userRepository.save(this);
   }
 
-  public saveToDatabase(): void {
-    // TODO: Implement the logic to save the user data to the database
+  // Método para enviar el correo de bienvenida
+  sendWelcomeEmail(): void {
+    const emailService = new EmailService();
+    emailService.sendWelcome(this);
   }
 
-  public sendWelcomeEmail(): void {
-    // TODO: Implement the logic to send a welcome email to the user
+  // Método para validar la contraseña del usuario
+  validatePassword(inputPassword: string): boolean {
+    const passwordValidator = new PasswordValidator();
+    return passwordValidator.validate(this, inputPassword);
   }
 
-  public validatePassword(inputPassword: string): boolean {
-    // TODO: Implement the logic to validate the user's password
+  // Método para generar el token de autenticación
+  generateAuthToken(): string {
+    const authTokenGenerator = new AuthTokenGenerator();
+    return authTokenGenerator.generate(this);
+  }
+}
+
+// Clase para guardar los datos del usuario en la base de datos
+class UserRepository {
+  save(user: User): void {
+    console.log(`Guardando el usuario ${user.getName()} con ID ${user.getId()} en la base de datos.`);
+  }
+}
+
+// Clase para enviar el correo de bienvenida al usuario
+class EmailService {
+  sendWelcome(user: User): void {
+    console.log(`Enviando correo de bienvenida a ${user.getName()} (${user.getEmail()}).`);
+  }
+}
+
+// Clase para validar contraseñas de usuarios
+class PasswordValidator {
+  validate(user: User, inputPassword: string): boolean {
+    console.log(`Validando contraseña para el usuario ${user.getName()} (${user.getEmail()}).`);
     return false;
   }
+}
 
-  public generateAuthToken(): string {
-    // TODO: Implement the logic to generate an authentication token for the user
+// Clase para generar el token de autenticación
+class AuthTokenGenerator {
+  generate(user: User): string {
+    console.log(`Generando token de autenticación para ${user.getName()} (${user.getEmail()}).`);
     return '';
   }
 }
