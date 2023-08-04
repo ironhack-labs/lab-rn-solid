@@ -1,5 +1,4 @@
 import { Dog, Fish } from "./animals";
-import { FancyPrinter, SimplePrinter, type Printer } from "./printer";
 import { FileLogger, DatabaseLogger, type Logger } from "./Logger";
 import {
   User,
@@ -8,6 +7,11 @@ import {
   UserRepoistory,
 } from "./src/single-responsibility-principle";
 import { Circle, Rectangle, Triangle } from "./src/open-closed-principle";
+import {
+  FancyPrinter,
+  SimplePrinter,
+  IPrinter,
+} from "./src/interface-segregation-principle";
 
 console.group(" Iteration 1: Single Responsibility Principle: ");
 
@@ -51,10 +55,14 @@ console.groupEnd();
 // printInfo(dog); // Output: Info: Dog - Buddy
 // printInfo(fish); // Output: Info: Fish - Goldfish
 
-// // Iteration 4:
+console.group(" Iteration 4: Interface Segregation Principle: ");
 
-// const simplePrinter: Printer = new SimplePrinter();
-// const fancyPrinter: Printer = new FancyPrinter();
+const simplePrinter: IPrinter = new SimplePrinter();
+const fancyPrinter: IPrinter = new FancyPrinter();
+
+simplePrinter.printContent("Hello, this is a simple printer."); // Output: Printing: Hello, this is a simple printer.
+fancyPrinter.printContent("Hello, this is a fancy printer."); // Output: Fancy printing: Hello, this is a fancy printer.
+console.groupEnd();
 
 // // Iteration 5:
 
