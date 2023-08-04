@@ -46,7 +46,7 @@
 //   }
 // }
 
-class User {
+export class User {
   private id: number;
   private name: string;
   private email: string;
@@ -76,44 +76,23 @@ class User {
   }
 }
 
-class UserRepository {
+export class UserRepository {
   public saveToDatabase(user: User): void {
     console.log('Saving in database:', user);
   }
 }
 
-class EmailService {
+export class EmailService {
   public sendWelcomeEmail(user: User): void {
     console.log('Sending a welcome email to:', user.getEmail());
   }
 }
 
-class AuthTokenGenerator {
+export class AuthTokenGenerator {
   public generateAuthToken(user: User): string {
     console.log('Generating auth token to:', user.getName());
     return 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjMyNDI5MTc2LCJleHAiOjE2MzI0MzIzNzZ9.TGW0q3o5PiFhdfQIT3E7TjgipU2FSC4h8rLzgEg47vo';
   }
 }
 
-// 
-const user = new User(1, 'Alberto Herm', 'alberto@dev.com', 'qwerty');
-
-
-const userRepository = new UserRepository();
-
-
-const emailService = new EmailService();
-
-
-const authTokenGenerator = new AuthTokenGenerator();
-
-// saveToDatabase para guardar el usuario en la base de datos
-userRepository.saveToDatabase(user);
-
-// sendWelcomeEmail para enviar el correo de bienvenida
-emailService.sendWelcomeEmail(user);
-
-// generateAuthToken para generar el token de auth
-const authToken = authTokenGenerator.generateAuthToken(user);
-console.log('Auth token:', authToken);
 

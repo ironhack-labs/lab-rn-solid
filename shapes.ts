@@ -61,12 +61,12 @@
 // }
 
 // Interface para el calculo del area
-interface AreaCalculable {
+export interface AreaCalculator {
   calculateArea(): number;
 }
 
 // Clase base para las shapes
-abstract class Shape implements AreaCalculable {
+export abstract class Shape implements AreaCalculator {
   protected type: string;
 
   constructor(type: string) {
@@ -81,7 +81,7 @@ abstract class Shape implements AreaCalculable {
   abstract calculateArea(): number;
 }
 
-class Circle extends Shape {
+export class Circle extends Shape {
   public radius: number;
 
   constructor(radius: number) {
@@ -95,7 +95,7 @@ class Circle extends Shape {
   }
 }
 
-class Rectangle extends Shape {
+export class Rectangle extends Shape {
   public width: number;
   public height: number;
 
@@ -111,7 +111,7 @@ class Rectangle extends Shape {
   }
 }
 
-class Triangle extends Shape {
+export class Triangle extends Shape {
   public base: number;
   public height: number;
 
@@ -127,11 +127,3 @@ class Triangle extends Shape {
   }
 }
 
-// Pruebas
-const circle = new Circle(5);
-const rectangle = new Rectangle(4, 6);
-const triangle = new Triangle(3, 8);
-
-console.log(circle.calculateArea()); // Output: 78.53981633974483
-console.log(rectangle.calculateArea()); // Output: 24
-console.log(triangle.calculateArea()); // Output: 12

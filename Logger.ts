@@ -12,17 +12,17 @@
 //   // TODO: Fill in the missing code to adhere to the Dependency Inversion Principle
 // }
 
-interface Logger {
+export interface Logger {
   log(message: string): void;
 }
 
-class FileLogger implements Logger {
+export class FileLogger implements Logger {
   public log(message: string): void {
     console.log(`Registering file: ${message}`);
   }
 }
 
-class DatabaseLogger implements Logger {
+export class DatabaseLogger implements Logger {
   private db: Logger;
 
   constructor(database: Logger) {
@@ -33,10 +33,3 @@ class DatabaseLogger implements Logger {
     this.db.log(`Registering in database: ${message}`);
   }
 }
-
-// Pruebas
-const fileLogger: Logger = new FileLogger();
-const databaseLogger: Logger = new DatabaseLogger(fileLogger);
-
-fileLogger.log("This is a log message in a file.");
-databaseLogger.log("This is a log message in the database.");

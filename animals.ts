@@ -29,13 +29,13 @@
 //   console.log(`Info: ${animal.getInfo()}`);
 // }
 
-class Animal {
+export class Animal {
   public getInfo(): string {
     return "Animal";
   }
 }
 
-class Dog extends Animal {
+export class Dog extends Animal {
   private name: string;
 
   constructor(name: string) {
@@ -48,7 +48,7 @@ class Dog extends Animal {
   }
 }
 
-class Fish extends Animal {
+export class Fish extends Animal {
   private type: string;
 
   constructor(type: string) {
@@ -61,13 +61,8 @@ class Fish extends Animal {
   }
 }
 
-function printInfo(animal: Animal): void {
+export function printInfo(animal: Animal): void {
   console.log(`Info: ${animal.getInfo()}`);
 }
 
-const dog = new Dog("Buddy");
-const fish = new Fish("Goldfish");
-
-printInfo(dog); // Output: Info: Dog - Buddy
-printInfo(fish); // Output: Info: Fish - Goldfish
 
