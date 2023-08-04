@@ -27,21 +27,36 @@ export default class User {
     return this.password;
   }
 
+}
+
+export class UserUtils {
+  private user : User;
+
+  constructor(user: User){
+    this.user = user;
+  }
+
   public saveToDatabase(): void {
     // TODO: Implement the logic to save the user data to the database
+    console.log(`${this.user.getName()} is saved to database`)
   }
 
   public sendWelcomeEmail(): void {
     // TODO: Implement the logic to send a welcome email to the user
+    console.log(`Welcome email is sended to ${this.user.getName()}`)
   }
 
   public validatePassword(inputPassword: string): boolean {
     // TODO: Implement the logic to validate the user's password
-    return false;
+    return inputPassword.length >= 8
   }
 
   public generateAuthToken(): string {
     // TODO: Implement the logic to generate an authentication token for the user
-    return '';
+    const token = `Bearer  ${this.user.getId().toString()}`
+    console.log(`Bearer token is generated to ${this.user.getName}`)
+    return token;
   }
+
+
 }
