@@ -1,4 +1,4 @@
-export  class Shape {
+/*export  class Shape {
   protected type: string;
 
   constructor(type: string) {
@@ -58,14 +58,14 @@ export class Triangle extends Shape {
     this.base = base;
     this.height = height;
   }
-}
+} */
 
 /**
  * These classes are not implementing open/closed principle.
  * AreaCalculator class needs to be modified when new shapes are added so... we can do a refacto
  */
 
-abstract class Shape {
+export abstract class Shape {
   protected type: string;
 
   constructor(type: string) {
@@ -79,7 +79,7 @@ abstract class Shape {
   abstract calculateArea(): number;
 }
 
-class Circle extends Shape {
+export class Circle extends Shape {
   public radius: number;
 
   constructor(radius: number) {
@@ -92,7 +92,7 @@ class Circle extends Shape {
   }
 }
 
-class Rectangle extends Shape {
+ export class Rectangle extends Shape {
   public width: number;
   public height: number;
 
@@ -107,7 +107,7 @@ class Rectangle extends Shape {
   }
 }
 
-class Triangle extends Shape {
+export class Triangle extends Shape {
   public base: number;
   public height: number;
 
@@ -123,7 +123,8 @@ class Triangle extends Shape {
 }
 
 //we can update the AreaCalculator class to use open/closed principle
-class AreaCalculator {
+export class AreaCalculator {
   public static calculateArea(shape: Shape): number {
     return shape.calculateArea();
+  }
 }

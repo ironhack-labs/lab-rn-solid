@@ -1,5 +1,5 @@
 export interface Logger {
-  log(message: string): void;
+  log(message: string) : void;
 }
 
 export class FileLogger implements Logger {

@@ -1,12 +1,14 @@
-import User from "./user"
+import { EmailService, User, UserSaver } from './user';
 import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes";
-import {Dog, Fish} from './animals'
+import {Dog, Fish, printInfo} from './animals'
 import {FancyPrinter, SimplePrinter, type Printer} from './printer'
 import {FileLogger, DatabaseLogger, type Logger} from './Logger'
 
 const user = new User(1, "John Doe", "john@example.com", "secretpassword");
-user.saveToDatabase();
-user.sendWelcomeEmail();
+const userSaver = new UserSaver();
+const emailService = new EmailService();
+userSaver.saveToDatabase(user);
+emailService.sendWelcomeEmail(user);
 
 // Iteration 2:
 
@@ -33,7 +35,7 @@ printInfo(fish); // Output: Info: Fish - Goldfish
 // Iteration 4:
 
 const simplePrinter: Printer = new SimplePrinter();
-const fancyPrinter: Printer = new FancyPrinter();
+const fancyPrinter: FancyPrinter = new FancyPrinter();
 
 // Iteration 5:
 

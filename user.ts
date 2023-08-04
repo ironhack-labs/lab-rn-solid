@@ -1,4 +1,4 @@
-export default class User {
+/*export default class User {
   private id: number;
   private name: string;
   private email: string;
@@ -44,13 +44,13 @@ export default class User {
     // TODO: Implement the logic to generate an authentication token for the user
     return '';
   }
-}
+} */
 
 /**
  * Modified version of User class with less responsibilities and better aproach of the Single responsibility Principle.
  */
 
-class User {
+export class User {
   private id: number;
   private name: string;
   private email: string;
@@ -81,14 +81,14 @@ class User {
 }
 
 // On another class we can manage the password validations
-class UserValidation {
+export class UserValidation {
   public validatePassword(user: User, inputPassword: string): boolean {
     return user.getPassword() === inputPassword;
   }
 }
 
 // On another class we can manage the AuthToken Generations
-class AuthTokenGenerator {
+export class AuthTokenGenerator {
   public generateAuthToken(user: User): string {
     //Auth token gen logic
     return 'token';
@@ -97,14 +97,14 @@ class AuthTokenGenerator {
 
 // Create other class responsible for saving the user data to the database
 //on other langauges can be UserRepository
-class UserSaver {
+export class UserSaver {
   public saveToDatabase(user: User): void {
     // TODO: Implement the logic to save the user data to the database
   }
 }
 
 //Have a class responsible for sending a welcome email to the user
-class EmailService {
+export class EmailService {
   public sendWelcomeEmail(user: User): void {
   }
 }
