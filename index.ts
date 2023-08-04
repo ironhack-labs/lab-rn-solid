@@ -1,5 +1,9 @@
 import { Dog, Fish } from "./animals";
-import { FileLogger, DatabaseLogger, type Logger } from "./Logger";
+import {
+  FileLogger,
+  DatabaseLogger,
+  Logger,
+} from "./src/dependency-inversion-principle";
 import {
   User,
   AuthService,
@@ -62,12 +66,15 @@ const fancyPrinter: IPrinter = new FancyPrinter();
 
 simplePrinter.printContent("Hello, this is a simple printer."); // Output: Printing: Hello, this is a simple printer.
 fancyPrinter.printContent("Hello, this is a fancy printer."); // Output: Fancy printing: Hello, this is a fancy printer.
+
 console.groupEnd();
 
-// // Iteration 5:
+console.group(" Iteration 5: Dependency Inversion Principle: ");
 
-// const fileLogger: Logger = new FileLogger();
-// const databaseLogger: Logger = new DatabaseLogger();
+const fileLogger: Logger = new FileLogger();
+const databaseLogger: Logger = new DatabaseLogger();
 
-// fileLogger.log("This is a log message in a file."); // Output: Logging to file: This is a log message in a file.
-// databaseLogger.log("This is a log message in the database."); // Output: Logging to database: This is a log message in the database.
+fileLogger.log("This is a log message in a file."); // Output: Logging to file: This is a log message in a file.
+databaseLogger.log("This is a log message in the database."); // Output: Logging to database: This is a log message in the database.
+
+console.groupEnd();
