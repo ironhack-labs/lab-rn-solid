@@ -1,4 +1,3 @@
-import { Dog, Fish } from "./animals";
 import {
   FileLogger,
   DatabaseLogger,
@@ -16,6 +15,7 @@ import {
   SimplePrinter,
   IPrinter,
 } from "./src/interface-segregation-principle";
+import { Dog, Fish, printInfo } from "./src/liskov-substitution-principle";
 
 console.group(" Iteration 1: Single Responsibility Principle: ");
 
@@ -51,13 +51,15 @@ console.log(triangle.calculateArea()); // Output: 12
 
 console.groupEnd();
 
-// // Iteration 3:
+console.group(" Iteration 3: Liskov Substitution Principle: ");
 
-// const dog = new Dog("Buddy");
-// const fish = new Fish("Goldfish");
+const dog = new Dog("Buddy");
+const fish = new Fish("Goldfish");
 
-// printInfo(dog); // Output: Info: Dog - Buddy
-// printInfo(fish); // Output: Info: Fish - Goldfish
+printInfo(dog); // Output: Info: Dog - Buddy
+printInfo(fish); // Output: Info: Fish - Goldfish
+
+console.groupEnd();
 
 console.group(" Iteration 4: Interface Segregation Principle: ");
 
