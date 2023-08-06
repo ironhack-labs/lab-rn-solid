@@ -1,11 +1,12 @@
 import User, { Auth, EmailService, SaveDatabase } from "./user/user";
-import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes";
+import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes/shapes";
 import { Dog, Fish } from "./animals";
 import { FancyPrinter, SimplePrinter, type Printer } from "./printer";
 import { FileLogger, DatabaseLogger, type Logger } from "./Logger";
 
 // Iteration 1:
 
+console.log(`--USER--`);
 const user = new User(1, "John Doe", "john@example.com", "secretpassword");
 const saveDatabase = new SaveDatabase();
 const emailService = new EmailService();
@@ -21,17 +22,18 @@ if (auth.validatePassword(user, "secretpassword")) {
 
 // Iteration 2:
 
-// const circle = new Circle(5);
-// const rectangle = new Rectangle(4, 6);
-// const triangle = new Triangle(3, 8);
+console.log(`--SHAPES--`);
+const circle = new Circle(5);
+const rectangle = new Rectangle(4, 6);
+const triangle = new Triangle(3, 8);
 
-// const circleArea = AreaCalculator.calculateArea(circle);
-// const rectangleArea = AreaCalculator.calculateArea(rectangle);
-// const triangleArea = AreaCalculator.calculateArea(triangle);
+const circleArea = AreaCalculator.calculateArea(circle);
+const rectangleArea = AreaCalculator.calculateArea(rectangle);
+const triangleArea = AreaCalculator.calculateArea(triangle);
 
-// console.log(circleArea); // Output: 78.53981633974483
-// console.log(rectangleArea); // Output: 24
-// console.log(triangleArea); // Output: 12
+console.log("Esta es la área del cículo: ", circleArea); // Output: 78.53981633974483
+console.log("Esta es la área del rectángulo: ", rectangleArea); // Output: 24
+console.log("Esta es la área del triángulo: ", triangleArea); // Output: 12
 
 // Iteration 3:
 
