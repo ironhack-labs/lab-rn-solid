@@ -1,6 +1,6 @@
 import User, { Auth, EmailService, SaveDatabase } from "./user/user";
 import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes/shapes";
-import { Dog, Fish } from "./animals";
+import { Dog, Fish, printInfo } from "./animals/animals";
 import { FancyPrinter, SimplePrinter, type Printer } from "./printer";
 import { FileLogger, DatabaseLogger, type Logger } from "./Logger";
 
@@ -37,11 +37,12 @@ console.log("Esta es la área del triángulo: ", triangleArea); // Output: 12
 
 // Iteration 3:
 
-// const dog = new Dog("Buddy");
-// const fish = new Fish("Goldfish");
+console.log(`--ANIMALS--`);
+const dog = new Dog("Buddy");
+const fish = new Fish("Goldfish");
 
-// printInfo(dog); // Output: Info: Dog - Buddy
-// printInfo(fish); // Output: Info: Fish - Goldfish
+printInfo(dog); // Output: Info: Dog - Buddy
+printInfo(fish); // Output: Info: Fish - Goldfish
 
 // Iteration 4:
 
