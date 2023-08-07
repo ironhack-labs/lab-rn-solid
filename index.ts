@@ -1,7 +1,7 @@
 import User, { Auth, EmailService, SaveDatabase } from "./user/user";
 import { Circle, Rectangle, Triangle, AreaCalculator } from "./shapes/shapes";
 import { Dog, Fish, printInfo } from "./animals/animals";
-import { FancyPrinter, SimplePrinter, type Printer } from "./printer";
+import { FancyPrinter, SimplePrinter, type Printer } from "./printer/printer";
 import { FileLogger, DatabaseLogger, type Logger } from "./Logger";
 
 // Iteration 1:
@@ -46,11 +46,16 @@ printInfo(fish); // Output: Info: Fish - Goldfish
 
 // Iteration 4:
 
-// const simplePrinter: Printer = new SimplePrinter();
-// const fancyPrinter: Printer = new FancyPrinter();
+console.log(`--PRINTER--`);
+const simplePrinter: Printer = new SimplePrinter();
+const fancyPrinter: Printer = new FancyPrinter();
+
+simplePrinter.printContent("Hello, this is a simple printer."); // Output: Printing: Hello, this is a simple printer.
+fancyPrinter.printContent("Hello, this is a fancy printer."); // Output: Fancy printing: Hello, this is a fancy printer.
 
 // Iteration 5:
 
+console.log(`--LOGGER--`);
 // const fileLogger: Logger = new FileLogger();
 // const databaseLogger: Logger = new DatabaseLogger();
 
